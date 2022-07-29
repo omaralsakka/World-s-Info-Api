@@ -1,0 +1,81 @@
+body {
+  background: rgba(0, 0, 0, 0.5) url("./media/planet.jpg") no-repeat center
+    fixed;
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
+.cards-shadow {
+  box-shadow: 4px 8px 8px hsl(0deg 0% 0% / 0.38);
+}
+.country-body {
+  background-color: #36323c;
+}
+.Notification {
+  color: white;
+}
+.title {
+  color: white;
+  text-align: center;
+}
+
+.slogan {
+  font-size: calc(10px + 1vw);
+}
+
+.Brand {
+  width: 10vw;
+  min-width: 150px;
+}
+
+.loading-logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30vh;
+  animation: loadingLogo 1s infinite;
+}
+
+@keyframes loadingLogo {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+.item {
+  font-size: 20px;
+  color: #303030;
+  font-weight: bold;
+}
+
+.stack-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.footer-bar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+  color: white;
+  font-size: calc(8px + 0.5vw);
+}
+
+.earth-img {
+  position: fixed;
+  z-index: -1;
+  right: 0;
+  width: 50vw;
+}
