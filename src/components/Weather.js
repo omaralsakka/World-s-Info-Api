@@ -3,7 +3,7 @@ import axios from "axios";
 import { ListGroup } from "react-bootstrap";
 import weather from "../media/weather.png";
 const Weather = ({ capital }) => {
-  const api_key = "9efa265684d6c167145d1364f9f63210";
+  const api_key = process.env.REACT_APP_API_KEY;
   const [lat, setLat] = useState("");
   const [lon, setLong] = useState("");
   const [countryData, setCountryData] = useState("");
