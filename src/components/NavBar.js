@@ -1,17 +1,26 @@
-import { Navbar } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
+import { Outlet, Link } from "react-router-dom";
 import logo from "../media/init-white.png";
 
-const style = {
-  width: "20%",
-  minWidth: "20px",
-};
-
-const Nav = () => (
-  <Navbar variant="dark">
-    <Navbar.Brand className=" Brand" href="/">
-      <img alt="brand's logo" src={logo} style={style} />
-    </Navbar.Brand>
-  </Navbar>
+const Navigation = () => (
+  <div>
+    <Navbar variant="dark">
+      <Container fluid>
+        <Navbar.Brand className="brand">
+          <img className="nav-brand-img" alt="brand's logo" src={logo} />
+        </Navbar.Brand>
+        <Nav className="me-auto" style={{ color: "white" }}>
+          <Link to="/" className=" nav-bar-text mx-1">
+            Home
+          </Link>
+          <Link className=" nav-bar-text mx-1" to="/about">
+            About
+          </Link>
+        </Nav>
+      </Container>
+    </Navbar>
+    <Outlet />
+  </div>
 );
 
-export default Nav;
+export default Navigation;

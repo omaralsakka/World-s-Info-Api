@@ -3,7 +3,7 @@ import axios from "axios";
 import { ListGroup } from "react-bootstrap";
 import weather from "../media/weather.png";
 const Weather = ({ capital }) => {
-  const api_key = process.env.REACT_APP_API_KEY;
+  const api_key = "9efa265684d6c167145d1364f9f63210";
   const [lat, setLat] = useState("");
   const [lon, setLong] = useState("");
   const [countryData, setCountryData] = useState("");
@@ -11,7 +11,7 @@ const Weather = ({ capital }) => {
   useEffect(() => {
     axios
       .get(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${capital}&limit=5&appid=${api_key}`
+        `https://api.openweathermap.org/geo/1.0/direct?q=${capital}&limit=5&appid=${api_key}`
       )
       .then((res) => {
         setLat(res.data[0].lat);
@@ -32,7 +32,6 @@ const Weather = ({ capital }) => {
   }, [lat, lon, api_key]);
 
   if (countryData) {
-    console.log(countryData);
     const temp = parseInt(countryData.main.temp - 273.15);
     const desc = countryData.weather[0].description;
     return (

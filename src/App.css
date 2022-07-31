@@ -1,8 +1,54 @@
+.myVideo {
+  position: fixed;
+  z-index: -10;
+  left: 0;
+  top: 0;
+  min-width: 100%;
+  min-height: 100%;
+  filter: brightness(80%);
+}
+
 body {
-  background: rgba(0, 0, 0, 0.5) url("./media/planet.jpg") no-repeat center
-    fixed;
-  background-size: cover;
-  background-blend-mode: darken;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0;
+}
+
+.cards-parent {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 50vh;
+}
+
+.country-card {
+  min-height: 250px;
+  max-height: 260px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  backface-visibility: hidden;
+}
+
+.country-card:hover {
+  min-height: 350px;
+  max-height: 450px;
+  transform: scale(1.1);
+}
+
+.country-card:hover img {
+  transform: scale(1.15);
+}
+
+.country-card img {
+  z-index: 10;
+  transition: all 0.5s ease;
 }
 
 .cards-shadow {
@@ -23,9 +69,20 @@ body {
   font-size: calc(10px + 1vw);
 }
 
-.Brand {
-  width: 10vw;
-  min-width: 150px;
+.nav-brand-img {
+  width: 100%;
+  max-width: 40px;
+  min-width: 20px;
+}
+
+.nav-bar-text {
+  text-decoration: none;
+  color: white;
+  font-size: calc(6px + 1vw);
+}
+
+.nav-bar-text:hover {
+  color: #556ff7;
 }
 
 .loading-logo {
@@ -65,12 +122,13 @@ body {
 }
 
 .footer-bar {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  text-align: right;
   color: white;
-  font-size: calc(8px + 0.5vw);
+  text-align: right;
+  margin-top: auto;
+}
+
+.footer-bar > p {
+  padding: 0 10px;
 }
 
 .earth-img {
@@ -78,4 +136,81 @@ body {
   z-index: -1;
   right: 0;
   width: 50vw;
+}
+
+.about-container {
+  min-width: 50vw;
+  max-width: 600px;
+}
+
+.icons-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.icons {
+  margin: 0 5px;
+  width: 2vw;
+  min-width: 30px;
+  transition: transform 0.25s ease;
+}
+
+.icons:hover {
+  transform: scale(1.2);
+}
+
+.icon-img {
+  width: 100%;
+}
+
+.about-me-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3vh;
+}
+
+.about-me-img {
+  max-width: 15vw;
+  min-width: 150px;
+  max-height: 30vh;
+  min-height: 100px;
+  border: solid black 2px;
+  border-top-left-radius: 50px;
+  box-shadow: 5px 5px #556ff7, 12px 12px #28364e;
+  overflow: hidden;
+}
+
+.my-img {
+  width: 100%;
+}
+
+.about-me-text {
+  margin: 0 5vw;
+}
+
+@media only screen and (max-width: 450px) {
+  .about-me-row {
+    flex-direction: column;
+  }
+  .about-me-text {
+    margin-top: 5vh;
+  }
+  .myVideo {
+    left: -100vw;
+    min-width: 100%;
+    max-width: 400vw;
+    min-height: 100%;
+    filter: brightness(30%);
+  }
+}
+
+@media only screen and (max-width: 1280px) and (min-width: 451px) {
+  .myVideo {
+    left: -80vw;
+    min-width: 100%;
+    max-width: 400vw;
+    min-height: 100%;
+    filter: brightness(50%);
+  }
 }

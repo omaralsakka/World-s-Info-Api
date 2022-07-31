@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import Home from "./components/Home";
 import axios from "axios";
 import useField from "./components/useField";
-import Nav from "./components/NavBar";
+import Navigation from "./components/NavBar";
 import Country from "./components/Country";
 import FooterBar from "./components/Footer";
+import About from "./components/About";
+import Video from "./components/Video";
 
 const App = () => {
   const [countries, setCountries] = useState([]);
@@ -19,21 +21,26 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
-      <Nav />
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={<Home search={search} countries={countries} />}
-          />
-          <Route
-            path="country/:id"
-            element={<Country countries={countries} />}
-          />
-        </Routes>
-      </BrowserRouter>
-      <FooterBar />
+    <div>
+      <Video />
+      <div className="App">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Navigation />}>
+              <Route
+                path="/"
+                element={<Home search={search} countries={countries} />}
+              />
+              <Route
+                path="country/:id"
+                element={<Country countries={countries} />}
+              />
+              <Route path="/about" element={<About />}></Route>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+        <FooterBar />
+      </div>
     </div>
   );
 };
