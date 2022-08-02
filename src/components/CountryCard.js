@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 const CountryCard = ({ country }) => {
   const name = country.name.common;
   const continent = country.continents[0];
-  const capital = country.capital[0];
+  let capital = "none";
+  if (name !== "Macau") {
+    capital = country.capital[0];
+  }
   const population = country.population;
   const flag = country.flags.svg;
   const style = {
@@ -29,11 +32,19 @@ const CountryCard = ({ country }) => {
           <Card.Body>
             <Card.Title>{name}</Card.Title>
             <hr />
-            <Card.Text>
-              {name} is located in {continent}. <br />
-              It's capital is {capital} and <br /> with a population of{" "}
-              {population}
-            </Card.Text>
+            {name !== "Macau" ? (
+              <Card.Text>
+                {name} is located in {continent}. <br />
+                It's capital is {capital} and <br /> with a population of{" "}
+                {population}
+              </Card.Text>
+            ) : (
+              <Card.Text>
+                {name} is located in {continent}. <br />
+                And with a population of {population}
+              </Card.Text>
+            )}
+
             <Link to={`country/${name}`}>
               <Button className="card-button">Read more</Button>
             </Link>

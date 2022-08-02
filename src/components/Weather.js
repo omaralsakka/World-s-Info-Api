@@ -7,7 +7,9 @@ const Weather = ({ capital }) => {
   const [lat, setLat] = useState("");
   const [lon, setLong] = useState("");
   const [countryData, setCountryData] = useState("");
-
+  if (capital === "none") {
+    capital = "Macau";
+  }
   useEffect(() => {
     axios
       .get(

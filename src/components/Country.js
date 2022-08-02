@@ -29,7 +29,11 @@ const Country = ({ countries }) => {
       currency;
     name = country.name.common;
     currency = Object.keys(country.currencies);
-    capital = country.capital[0];
+    if (name !== "Macau") {
+      capital = country.capital[0];
+    } else {
+      capital = "none";
+    }
     population = country.population;
     continent = country.continents[0];
     languages = Object.values(country.languages);
@@ -101,7 +105,12 @@ const Country = ({ countries }) => {
                       )}
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <span className="item">Weather in {capital}: </span>
+                      {capital !== "none" ? (
+                        <span className="item">Weather in {capital}: </span>
+                      ) : (
+                        <span className="item">Weather in Macau: </span>
+                      )}
+
                       <Weather capital={capital} />
                     </ListGroup.Item>
                   </ListGroup>
