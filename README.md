@@ -33,3 +33,7 @@ in the capital of this country.
 - write in ```.env``` file the following: ```REACT_APP_API_KEY=your api key here```
 - ```npm start```
 
+## :lady_beetle: **Bug fix:**
+
+- 02.08.2022<br /> 
+Fixed error when searching with ``mac`` as the country Macau did not have a capital to display and that caused the app to crash
